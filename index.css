@@ -1,0 +1,246 @@
+.background {
+    background-image: url('https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Vale_do_Catimbau_-_forma%C3%A7%C3%A3o_rochosa.jpg/1280px-Vale_do_Catimbau_-_forma%C3%A7%C3%A3o_rochosa.jpg?utm_source=pt.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Evita que elementos saiam do contêiner */
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); /* Gradiente moderno */
+    z-index: -1;
+}
+
+.title {
+    font-family: 'TypeParis';
+    text-align: center;
+    font-size: 4rem; /* Tamanho responsivo */
+    font-weight: bold;
+    color: white;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra */
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+.title:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.start-button {
+    font-family: Courier, monospace;
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #fff200, #ff6f00); /* Gradiente moderno */
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    font-family: 'TypeParis';
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.intro-title {
+    font-family: 'TypeParis';
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.about {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+}
+
+#answers {
+    margin-top: 20px;
+}
+
+.answer-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #fff200, #ff6f00);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.answer-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.answer-button.correct {
+    background: #00ff08;
+}
+
+.answer-button.incorrect {
+    background: #ff1100;
+}
+
+#next-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#next-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para telas menores (dispositivos móveis) */
+@media (max-width: 768px) {
+    .background {
+        background-position: center;
+        background-size: cover;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 2.5rem; /* Reduz o tamanho do título */
+        padding: 15px 20px; /* Ajusta o espaçamento interno */
+    }
+
+    .quiz-container {
+        max-width: 90%; /* Reduz a largura do contêiner */
+        margin: 20px auto; /* Ajusta o espaçamento */
+        padding: 15px; /* Reduz o padding interno */
+    }
+
+    .answer-button {
+        padding: 8px 15px; /* Reduz o tamanho dos botões */
+        font-size: 1rem; /* Ajusta o tamanho da fonte */
+        border-radius: 20px; /* Mantém o design arredondado */
+    }
+
+    #next-button {
+        padding: 8px 15px; /* Reduz o tamanho do botão "Próxima Pergunta" */
+        font-size: 1rem; /* Ajusta o tamanho da fonte */
+        border-radius: 20px;
+    }
+
+    .footer {
+        font-size: 12px; /* Reduz o tamanho da fonte no rodapé */
+        padding: 5px;
+    }
+}
+
+/* Estilos para telas muito pequenas (ex.: smartphones) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem; /* Reduz ainda mais o tamanho do título */
+        padding: 10px 15px;
+    }
+
+    .quiz-container {
+        padding: 10px; /* Reduz o padding interno */
+    }
+
+    .answer-button {
+        padding: 6px 10px; /* Ajusta o tamanho dos botões */
+        font-size: 0.9rem; /* Reduz o tamanho da fonte */
+    }
+
+    #next-button {
+        padding: 6px 10px; /* Ajusta o tamanho do botão */
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .intro-title {
+        font-size: 2.5rem; /* Reduz o tamanho do título */
+        padding: 10px; /* Ajusta o espaçamento interno */
+    }
+
+    .about {
+        font-size: 1rem; /* Reduz o tamanho do texto */
+        padding: 10px; /* Adiciona espaçamento interno */
+        margin: 10px auto; /* Ajusta o espaçamento externo */
+    }
+
+    .start-button {
+        padding: 10px 20px; /* Ajusta o tamanho do botão */
+        font-size: 1rem; /* Reduz o tamanho da fonte */
+        border-radius: 20px; /* Mantém o design arredondado */
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-title {
+        font-size: 2rem; /* Reduz ainda mais o tamanho do título */
+        padding: 8px; /* Ajusta o espaçamento interno */
+    }
+
+    .about {
+        font-size: 0.9rem; /* Reduz o tamanho do texto */
+        padding: 8px; /* Ajusta o espaçamento interno */
+        margin: 8px auto; /* Ajusta o espaçamento externo */
+    }
+
+    .start-button {
+        padding: 8px 15px; /* Ajusta o tamanho do botão */
+        font-size: 0.9rem; /* Reduz o tamanho da fonte */
+        border-radius: 15px; /* Mantém o design arredondado */
+    }
+}
