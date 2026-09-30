@@ -170,3 +170,55 @@ function endQuiz() {
 document.getElementById("next-button").addEventListener("click", nextQuestion);
 shuffleQuestions();
 showQuestion();
+
+function adjustQuestionFontSize() {
+    const questionElement = document.getElementById("question");
+    const answersElement = document.getElementById("answers");
+    const answerButtons = answersElement.querySelectorAll(".answer-button");
+
+    // Calcula o comprimento máximo das respostas
+    let maxAnswerLength = 0;
+    answerButtons.forEach(button => {
+        if (button.textContent.length > maxAnswerLength) {
+            maxAnswerLength = button.textContent.length;
+        }
+    });
+
+    // Ajusta o tamanho da fonte da pergunta com base no comprimento das respostas
+    if (maxAnswerLength > 50) {
+        questionElement.style.fontSize = "1.5rem"; // Reduz o tamanho da fonte
+    } else if (maxAnswerLength > 30) {
+        questionElement.style.fontSize = "2rem"; // Tamanho médio
+    } else {
+        questionElement.style.fontSize = "2.5rem"; // Tamanho padrão
+    }
+}
+
+// Chame a função sempre que uma nova pergunta for exibida
+function showQuestion() {
+    const questionElement = document.getElementById("question");
+    const answersElement = document.getElementById("answers");
+    const nextButton = document.getElementById("next-button");
+
+    // Limpa as respostas anteriores
+    answersElement.innerHTML = "";
+
+    // Mostra a pergunta
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+
+    // Cria os botões de resposta
+    currentQuestion.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.textContent = answer;
+        button.classList.add("answer-button");
+        button.addEventListener("click", () => selectAnswer(index));
+        answersElement.appendChild(button);
+    });
+
+    // Esconde o botão "Próxima Pergunta"
+    nextButton.style.display = "none";
+
+    // Ajusta o tamanho da fonte da pergunta
+    adjustQuestionFontSize();
+}
